@@ -6,9 +6,12 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 09:26:05 by ebennace          #+#    #+#             */
-/*   Updated: 2022/04/29 18:54:00 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/04 17:53:12 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+# include <mlx.h>
+# include <stdio.h>
 
 # include <mlx.h>
 # include <stdio.h>
@@ -37,19 +40,18 @@ int	main(void)
 	t_data	img;
 	int x;
 	
-	x = 5;
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
 	img.img = mlx_new_image(mlx, 1920, 1080);
 	img.bits_per_pixel = 4 * 8;
-	img.line_length = 4 * 1920;
+	img.line_length /= 4;
 	img.endian = 0;
 	img.addr = mlx_get_data_addr(img.img, 
 								&img.bits_per_pixel, 
 								&img.line_length,
 								&img.endian);
-	for (int y = 50; y < 1000; y++)
-		for (int x = 5; x < 1000; x++)
+	for (int y = 0; y < 1000; y++)
+		for (int x = 0; x < 1920; x++)
 			my_mlx_pixel_put(&img, x, y, 0x00FFFFFF);
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
