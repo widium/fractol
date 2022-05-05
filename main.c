@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 09:26:05 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/05 17:38:26 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/05 18:32:27 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,21 +87,6 @@ int get_iterations(char *argv)
 	return (-1);
 }
 
-t_model *init_model()
-{
-	t_model *model;
-
-	model = (t_model *)malloc(sizeof(t_model));
-	if (!model)
-		return (NULL);
-	model->model = 0;
-	model->iterations = 0;
-	model->false_iterations = 0;
-	model->empty = 0;
-	model->to_much = 0;
-	return (model);
-}
-
 t_model *check_input(int argc, char **argv)
 {
 	int i;
@@ -152,17 +137,43 @@ t_model *check_input(int argc, char **argv)
 	
 // }
 
-int main(int argc, char **argv)
+// int main(int argc, char **argv)
+// {
+// 	t_model *model;
+// 	// printf("%d\n",argc);
+// 	// printf("%s\n", argv[1]);
+// 	// printf("%d\n", str_comp(argv[1], "mandelbrot"));
+// 	// printf("%d\n",check_input(argc, argv));
+// 	model = check_input(argc, argv);
+// 	printf("\nmodel -> %d\n", model->model);
+// 	printf("iterations -> %d\n", model->iterations);
+// 	printf("false_iterations -> %d\n", model->false_iterations);
+// 	printf("Input vide ? -> %d\n", model->empty);
+// 	printf("To many args ? %d\n", model->to_much);
+
+	
+//}
+
+int	main(void)
 {
-	t_model *model;
-	// printf("%d\n",argc);
-	// printf("%s\n", argv[1]);
-	// printf("%d\n", str_comp(argv[1], "mandelbrot"));
-	// printf("%d\n",check_input(argc, argv));
-	model = check_input(argc, argv);
-	printf("model -> %d\n", model->model);
-	printf("iterations -> %d\n", model->iterations);
-	printf("false_iterations -> %d\n", model->false_iterations);
-	printf("Input vide ? -> %d\n", model->empty);
-	printf("To many args ? %d\n", model->to_much);
+	t_mlx	*img;
+	// t_normal_plan *normal_plan;
+    img = (t_mlx *)malloc(sizeof(t_mlx));
+	
+	img->mlx = mlx_init();
+	img->mlx_win = mlx_new_window(img->mlx, 1920, 1080, "Hello world!");
+	img->img = mlx_new_image(img->mlx, 1920, 1080);
+	img->bits_per_pixel = 4 * 8;
+	img->line_length /= 4;
+	img->endian = 0;
+	img->addr = mlx_get_data_addr(img->img, 
+								&img->bits_per_pixel, 
+								&img->line_length,
+								&img->endian);
+
+	
+	my_mlx_pixel_put(img, 0, 0, 0x00FFFFFF);
+	mlx_put_image_to_window(img->mlx, img->mlx_win, img->img, 0, 0);
+	mlx_loop(img->mlx);
+
 }

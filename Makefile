@@ -3,6 +3,7 @@ NAME = fractol
 SRCS		= 	main.c \
 				julia.c \
 				imag.c \
+				init.c \
 
 
 
