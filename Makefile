@@ -1,17 +1,20 @@
 NAME = fractol
 
 SRCS		= 	main.c \
+				julia.c \
+				imag.c \
+
 
 
 OBJS			= $(SRCS:.c=.o)
 CC				= clang
-FLAGS 			= -Wall -Werror -Wextra
-FLAGS		    += -lmlx -lXext -lX11 -lm
+# FLAGS 			= -Wall -Werror -Wextra
+FLAGS		    = -lmlx -lXext -lX11 -lm
 SANITIZE		= -g3 -fsanitize=address
 
-$(NAME): 		$(OBJS)
+$(NAME) : 		$(OBJS)
 				make -C libft
-				$(CC) $(OBJS) $(FLAGS)  -o ${NAME}			
+				$(CC) $(FLAGS) $(OBJS) libft/libft.a -o $(NAME)		
 
 all : 			$(NAME)
 
