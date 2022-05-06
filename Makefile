@@ -4,18 +4,23 @@ SRCS		= 	main.c \
 				julia.c \
 				imag.c \
 				init.c \
+				complex.c \
+				parsing.c \
 
 
 
 OBJS			= $(SRCS:.c=.o)
 CC				= clang
-# FLAGS 			= -Wall -Werror -Wextra
-FLAGS		    = -lmlx -lXext -lX11 -lm
+FLAGS 			= -Wall -Werror -Wextra
+FLAGS		    += -lmlx -lXext -lX11 -lm
 SANITIZE		= -g3 -fsanitize=address
 
+%.o : %.c
+			$(CC) -c $(CFLAGS) $< -o $@
+	
 $(NAME) : 		$(OBJS)
 				make -C libft
-				$(CC) $(FLAGS) $(OBJS) libft/libft.a -o $(NAME)		
+				$(CC) $(OBJS) $(FLAGS) libft/libft.a -o $(NAME)		
 
 all : 			$(NAME)
 
@@ -39,7 +44,7 @@ fclean : clean
 				/bin/rm -rf $(NAME)
 
 debug : 		$(OBJS)
-				$(CC) $(FLAGS) $(SANITIZE) $(OBJS) libft/libft.a -o $(NAME)
+				$(CC) $(OBJS) $(FLAGS) $(SANITIZE) libft/libft.a  -o $(NAME)
 				lldb ./$(NAME) 3 2 1
 
 

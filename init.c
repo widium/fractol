@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:11:17 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/05 18:27:04 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/06 15:30:54 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,45 @@ t_model *init_model()
 	return (model);
 }
 
+t_complex *init_complex()
+{
+	t_complex	*complex;
 
+	complex = (t_complex *)malloc(sizeof(t_complex));
+	if (!complex)
+		return (NULL);
+	complex->real = 0.0;
+	complex->imag = 0.0;
+	return (complex);
+}
 
+t_complex_plan *init_complex_plan()
+{
+	t_complex_plan *plan;
+
+	plan = (t_complex_plan *)malloc(sizeof(t_complex_plan));
+	if (!plan)
+		return (NULL);
+	plan->imag_max = 0.0;
+    plan->imag_min = 0.0;
+    plan->imag = 0.0;
+    plan->real_max = 0.0;
+    plan->real_min = 0.0;
+    plan->real = 0.0;
+	return (plan);
+}
+
+t_normal_plan *init_normal_plan()
+{
+	t_normal_plan *plan;
+	
+	plan = (t_normal_plan *)malloc(sizeof(t_normal_plan));
+	if (!plan)
+		return (NULL);
+	plan->height = 0.0;
+	plan->width = 0.0;
+	return (plan);
+}
 // t_model *init_model()
 // {
 // 	t_model *model;
