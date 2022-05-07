@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 11:07:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/06 15:32:48 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/07 19:34:21 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ t_normal_plan *init_normal_plan();
 t_normal_plan *create_normal_plan(double height, double width);
 t_complex_plan *create_complex_plan(double min, double max);
 t_complex *create_complex(double real, double imag);
+t_complex *compute_fractal(t_complex *c, t_complex *z_t, t_complex *z_t1);
 
 void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
 
