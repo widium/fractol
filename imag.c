@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:07:51 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/07 19:40:45 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/07 19:56:00 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,10 @@ int	main(void)
 			
 			while (i < iter_max && (z_t1->real * z_t1->real + z_t1->imag * z_t1->imag) < 4)
 			{
+				//change value of fractal
+				z_0->real = -0.79;
+				z_0->imag = 0.15;
+				
 				//calculer le z_t+1
 				z_t1 = compute_fractal(z_0, z_t, z_t1);
 				
@@ -122,7 +126,7 @@ int	main(void)
 			if (i == iter_max)
 				my_mlx_pixel_put(img, x, y, 0);
 			else
-				my_mlx_pixel_put(img, x, y, 0x00FFFF);
+				my_mlx_pixel_put(img, x, y, 0x00FFFFFF);
 
 		}
 	}
