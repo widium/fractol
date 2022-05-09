@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 11:07:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/07 19:34:21 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:10:28 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 # include <mlx.h>
 # include "libft/libft.h"
 # include <math.h>
+
+# define RED 12
+# define GREEN 10
+# define BLUE 1
 
 
 typedef struct s_model
@@ -67,9 +71,15 @@ typedef struct s_normal_plan
     double width;
 }       t_normal_plan;
 
+typedef struct s_index_complex
+{
+    double real;
+    double imag;
+}       t_index_complex;
 
 t_model *init_model();
 t_complex *init_complex();
+t_index_complex *init_index_complex();
 t_complex_plan *init_complex_plan();
 t_normal_plan *init_normal_plan();
 
@@ -77,8 +87,9 @@ t_normal_plan *init_normal_plan();
 t_normal_plan *create_normal_plan(double height, double width);
 t_complex_plan *create_complex_plan(double min, double max);
 t_complex *create_complex(double real, double imag);
+t_complex *complex_value(t_complex *z, double real, double imag);
 t_complex *compute_fractal(t_complex *c, t_complex *z_t, t_complex *z_t1);
-
+double c_abs(t_complex *z);
 void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
 
 
@@ -88,5 +99,8 @@ int is_digit(char *str);
 int	check_name_fractal(char *argv);
 int get_iterations(char *argv);
 t_model *check_input(int argc, char **argv);
+
+
+int pick_color(int i);
 
 #endif

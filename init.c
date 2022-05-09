@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:11:17 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/06 15:30:54 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/09 10:28:49 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,18 @@ t_normal_plan *init_normal_plan()
 	plan->height = 0.0;
 	plan->width = 0.0;
 	return (plan);
+}
+
+t_index_complex *init_index_complex()
+{
+	t_index_complex *index;
+	
+	index = (t_index_complex *)malloc(sizeof(t_index_complex));
+	if (!index)
+		return (NULL);
+	index->real = 0.0;
+	index->imag = 0.0;
+	return (index);	
 }
 // t_model *init_model()
 // {

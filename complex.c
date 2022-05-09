@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 11:08:32 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/06 15:26:20 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/09 13:44:15 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,18 @@ t_normal_plan *create_normal_plan(double height, double width)
 
     // printf(" width : (%d)--------(%d)\n", plan->height - plan->height, plan->height);
     // printf(" height : (%d)\n         |\n         |\n         |\n         |\n       (%d)\n", plan->width - plan->width, plan->width);
+}
+
+t_complex *complex_value(t_complex *z, double real, double imag)
+{
+    z->real = real;
+    z->imag = imag;
+    return (z);
+}
+
+double c_abs(t_complex *z)
+{
+    return (z->real * z->real + z->imag * z->imag);
 }
 // int main(void)
 // {

@@ -6,6 +6,7 @@ SRCS		= 	main.c \
 				init.c \
 				complex.c \
 				parsing.c \
+				color.c \
 
 
 
@@ -45,7 +46,7 @@ fclean : clean
 
 debug : 		$(OBJS)
 				$(CC) $(OBJS) $(FLAGS) $(SANITIZE) libft/libft.a  -o $(NAME)
-				lldb ./$(NAME) 3 2 1
+				# lldb ./$(NAME)
 
 
 re : fclean all
