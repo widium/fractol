@@ -7,13 +7,14 @@ SRCS		= 	main.c \
 				complex.c \
 				parsing.c \
 				color.c \
+				hook.c \
 
 
 
 OBJS			= $(SRCS:.c=.o)
 CC				= clang
-FLAGS 			= -Wall -Werror -Wextra
-FLAGS		    += -lmlx -lXext -lX11 -lm
+# FLAGS 			= -Wall -Werror -Wextra
+FLAGS		    = -lmlx -lXext -lX11 -lm
 SANITIZE		= -g3 -fsanitize=address
 
 %.o : %.c

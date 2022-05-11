@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:07:51 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/09 18:34:52 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/11 17:54:30 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,53 +22,29 @@ void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color)
 }
 
 
-t_complex *compute_fractal(t_complex *c, t_complex *z_t, t_complex *z_t1)
+t_mlx *julia(t_mlx *img, 
+		t_normal_plan *normal_plan,
+		int plan_max, 
+		int plan_min)
 {
-	z_t1->real = z_t->real * z_t->real - z_t->imag * z_t->imag + c->real;
-	z_t1->imag = 2*(z_t->real * z_t->imag) + c->imag;
-
-	return(z_t1);
-
-}
-t_mlx *create_imag(int height, int widht)
-{
-	t_mlx	*img;
-	img = (t_mlx *)malloc(sizeof(t_mlx));
-
-	img->mlx = mlx_init();
-	img->mlx_win = mlx_new_window(img->mlx, widht, height, "Hello world!");
-	img->img = mlx_new_image(img->mlx, widht, height);
-	img->addr = mlx_get_data_addr(img->img, 
-								&img->bits_per_pixel, 
-								&img->line_length,
-								&img->endian);
-	return (img);
-}
-int	main(void)
-{
-	t_mlx	*img;
 	t_complex_plan *complex_plan;
-	t_normal_plan *normal_plan;
 	t_index_complex *idx;
 	
 	t_complex *z_0;
 	t_complex *z_t;
 	t_complex *z_t1;
 	
-	int iter_max = 100;
+	int iter_max = 50;
 	int i;
 	
 
 	idx = init_index_complex();
-	normal_plan = create_normal_plan(2000.0, 2000.0);
-	img = create_imag((int)normal_plan->height, (int)normal_plan->width);
-	complex_plan = create_complex_plan(-2.0, 2.0);
 	
+	complex_plan = create_complex_plan(plan_min, plan_max);
 	
 	z_0 = create_complex(0.0 , 0.0);
 	z_t = create_complex(z_0->real , z_0->imag);
 	z_t1 = create_complex(z_0->real , z_0->imag);
-	
 	
 
 	int x = -1.0;
@@ -107,6 +83,6 @@ int	main(void)
 		}
 	}
 	mlx_put_image_to_window(img->mlx, img->mlx_win, img->img, 0, 0);
-	mlx_loop(img->mlx);
-
+	return (img);
 }
+

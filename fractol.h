@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 11:07:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/09 17:10:28 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/11 16:52:14 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <mlx.h>
 # include "libft/libft.h"
 # include <math.h>
+#include "key.h"
+
 
 # define RED 12
 # define GREEN 10
@@ -77,6 +79,18 @@ typedef struct s_index_complex
     double imag;
 }       t_index_complex;
 
+typedef struct s_env
+{
+    t_mlx *mlx;
+    //t_model *model;
+    t_complex_plan *complex_plan;
+    t_normal_plan *normal_plan;
+    t_index_complex *index;
+    t_complex *complex;
+    
+}           t_env;
+
+
 t_model *init_model();
 t_complex *init_complex();
 t_index_complex *init_index_complex();
@@ -84,14 +98,29 @@ t_complex_plan *init_complex_plan();
 t_normal_plan *init_normal_plan();
 
 
+//---Init Struct-----//
 t_normal_plan *create_normal_plan(double height, double width);
 t_complex_plan *create_complex_plan(double min, double max);
 t_complex *create_complex(double real, double imag);
-t_complex *complex_value(t_complex *z, double real, double imag);
-t_complex *compute_fractal(t_complex *c, t_complex *z_t, t_complex *z_t1);
-double c_abs(t_complex *z);
+t_mlx *create_imag(int height, int widht);
+t_env *create_env(int height, int widht);
+
+
 void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
 
+int zoom(int key_code, int x, int y, t_env *env);
+int key_exit(int key_code, t_mlx *mlx);
+
+
+t_complex *complex_value(t_complex *z, double real, double imag);
+t_complex *compute_fractal(t_complex *c, t_complex *z_t, t_complex *z_t1);
+t_complex_plan *re_scale_complex_plan(t_complex_plan *complex_plan, double gamma);
+double c_abs(t_complex *z);
+
+t_mlx *julia(t_mlx *img, 
+		t_normal_plan *normal_plan,
+		int plan_max, 
+		int plan_min);
 
 int str_comp(char *first, char *second);
 int check_argc(int argc);

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 11:08:32 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/09 13:44:15 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/11 10:56:57 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,15 @@ t_complex *complex_value(t_complex *z, double real, double imag)
 double c_abs(t_complex *z)
 {
     return (z->real * z->real + z->imag * z->imag);
+}
+
+t_complex *compute_fractal(t_complex *c, t_complex *z_t, t_complex *z_t1)
+{
+	z_t1->real = z_t->real * z_t->real - z_t->imag * z_t->imag + c->real;
+	z_t1->imag = 2*(z_t->real * z_t->imag) + c->imag;
+
+	return(z_t1);
+
 }
 // int main(void)
 // {

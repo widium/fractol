@@ -6,11 +6,26 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:11:17 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/09 10:28:49 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/11 17:40:23 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+t_mlx *create_imag(int height, int widht)
+{
+	t_mlx	*img;
+	img = (t_mlx *)malloc(sizeof(t_mlx));
+
+	img->mlx = mlx_init();
+	img->mlx_win = mlx_new_window(img->mlx, widht, height, "Hello world!");
+	img->img = mlx_new_image(img->mlx, widht, height);
+	img->addr = mlx_get_data_addr(img->img, 
+								&img->bits_per_pixel, 
+								&img->line_length,
+								&img->endian);
+	return (img);
+}
 
 t_model *init_model()
 {
@@ -77,6 +92,21 @@ t_index_complex *init_index_complex()
 	index->real = 0.0;
 	index->imag = 0.0;
 	return (index);	
+}
+
+t_env *create_env(int height, int widht)
+{
+	t_env *env;
+	
+	env = (t_env *)malloc(sizeof(t_env));
+	if (!env)
+		return (NULL);
+	env->complex_plan = create_complex_plan(-2.0, 2.0);
+	env->normal_plan = create_normal_plan(height, widht);
+	env->mlx =  create_imag((int)env->normal_plan->height, (int)env->normal_plan->width);
+	env->index = init_index_complex();
+	env->complex = create_complex(0.0, 0.0);
+	return (env);
 }
 // t_model *init_model()
 // {

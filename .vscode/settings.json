@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "fractol.h": "c",
+        "limits": "c",
+        "chrono": "c",
+        "variant": "c"
+    }
+}
