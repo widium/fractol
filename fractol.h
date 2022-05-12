@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 11:07:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/11 16:52:14 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/12 09:47:51 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,9 @@ typedef struct s_env
     t_complex_plan *complex_plan;
     t_normal_plan *normal_plan;
     t_index_complex *index;
-    t_complex *complex;
+    t_complex *z_t1;
+    t_complex *z_t;
+    t_complex *c;
     
 }           t_env;
 
@@ -117,10 +119,7 @@ t_complex *compute_fractal(t_complex *c, t_complex *z_t, t_complex *z_t1);
 t_complex_plan *re_scale_complex_plan(t_complex_plan *complex_plan, double gamma);
 double c_abs(t_complex *z);
 
-t_mlx *julia(t_mlx *img, 
-		t_normal_plan *normal_plan,
-		int plan_max, 
-		int plan_min);
+t_mlx *julia(t_env *env);
 
 int str_comp(char *first, char *second);
 int check_argc(int argc);

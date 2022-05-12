@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:07:51 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/11 17:54:30 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/12 09:55:17 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,67 +22,48 @@ void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color)
 }
 
 
-t_mlx *julia(t_mlx *img, 
-		t_normal_plan *normal_plan,
-		int plan_max, 
-		int plan_min)
+t_mlx *julia(t_env *env)
 {
-	t_complex_plan *complex_plan;
-	t_index_complex *idx;
-	
-	t_complex *z_0;
-	t_complex *z_t;
-	t_complex *z_t1;
-	
 	int iter_max = 50;
 	int i;
-	
-
-	idx = init_index_complex();
-	
-	complex_plan = create_complex_plan(plan_min, plan_max);
-	
-	z_0 = create_complex(0.0 , 0.0);
-	z_t = create_complex(z_0->real , z_0->imag);
-	z_t1 = create_complex(z_0->real , z_0->imag);
-	
-
 	int x = -1.0;
-	while (++x < normal_plan->width)
+
+	
+	while (++x < env->normal_plan->width)
 	{
 		int y = -1.0;
-		while (++y < normal_plan->height)
+		while (++y < env->normal_plan->height)
 		{
 			i = 0;
-			idx->real = x / normal_plan->width * complex_plan->real + complex_plan->real_min;
-			idx->imag = y / normal_plan->height * complex_plan->imag + complex_plan->imag_min;
+			env->index->real = x / env->normal_plan->width * env->complex_plan->real + env->complex_plan->real_min;
+			env->index->imag = y / env->normal_plan->height * env->complex_plan->imag + env->complex_plan->imag_min;
 		
-			z_0 = complex_value(z_0, idx->real, idx->imag);
-			z_t = complex_value(z_t, idx->real, idx->imag);
-			z_t1 = complex_value(z_t1,idx->real, idx->imag);
+			env->c = complex_value(env->c, env->index->real, env->index->imag);
+			env->z_t = complex_value(env->z_t, env->index->real, env->index->imag);
+			env->z_t1 = complex_value(env->z_t1, env->index->real, env->index->imag);
 			
-			while (i < iter_max && c_abs(z_t1) < 4)
+			while (i < iter_max && c_abs(env->z_t1) < 4)
 			{
 				// change value of fractal
-				z_0->real = 0.3;
-				z_0->imag = 0.01;
+				env->c->real = 0.3;
+				env->c->imag = 0.01;
 				
 				//calculer le z_t+1
-				z_t1 = compute_fractal(z_0, z_t, z_t1);
+				env->z_t1 = compute_fractal(env->c, env->z_t, env->z_t1);
 				
 				//update z_t
-				z_t = complex_value(z_t, z_t1->real, z_t1->imag);
+				env->z_t = complex_value(env->z_t, env->z_t1->real, env->z_t1->imag);
 
 				++i;
 			}
 			if (i == iter_max)
-				my_mlx_pixel_put(img, x, y, 0);
+				my_mlx_pixel_put(env->mlx, x, y, 0);
 			else
-				my_mlx_pixel_put(img, x, y, pick_color(i));
+				my_mlx_pixel_put(env->mlx, x, y, pick_color(i));
 
 		}
 	}
-	mlx_put_image_to_window(img->mlx, img->mlx_win, img->img, 0, 0);
-	return (img);
+	mlx_put_image_to_window(env->mlx->mlx, env->mlx->mlx_win, env->mlx->img, 0, 0);
+	return (env->mlx);
 }
 

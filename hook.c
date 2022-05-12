@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 15:52:13 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/11 18:18:39 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/12 09:56:49 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int zoom(int key_code, int x, int y, t_env *env)
         printf("(%f, %f)\n", 
                 env->complex_plan->real_min,
                 env->complex_plan->real_max);
-        julia(env->mlx, env->normal_plan, env->complex_plan->real_min, env->complex_plan->real_max);
+        julia(env);
 	}
 	else if (key_code == K_ZOOM_OUT)
     {
@@ -45,7 +45,7 @@ int zoom(int key_code, int x, int y, t_env *env)
                 env->complex_plan->real_min,
                 env->complex_plan->real_max);
        env->complex_plan = re_scale_complex_plan(env->complex_plan, 1.1);
-       julia(env->mlx, env->normal_plan, env->complex_plan->real_min, env->complex_plan->real_max);
+       julia(env);
     }
 		
     

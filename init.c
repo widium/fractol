@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:11:17 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/11 17:40:23 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/12 09:47:42 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,9 @@ t_env *create_env(int height, int widht)
 	env->normal_plan = create_normal_plan(height, widht);
 	env->mlx =  create_imag((int)env->normal_plan->height, (int)env->normal_plan->width);
 	env->index = init_index_complex();
-	env->complex = create_complex(0.0, 0.0);
+	env->z_t1 = create_complex(0.0, 0.0);
+	env->z_t = create_complex(0.0, 0.0);
+	env->c = create_complex(0.0, 0.0);
 	return (env);
 }
 // t_model *init_model()

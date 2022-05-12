@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 09:26:05 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/11 17:56:30 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/12 09:56:00 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main(void)
     printf("Min = (%f)\n", env->complex_plan->real_min);
     
     
-    julia(env->mlx, env->normal_plan, env->complex_plan->real_min, env->complex_plan->real_max);
+    julia(env);
 
     mlx_mouse_hook(env->mlx->mlx_win, zoom, env);
 
