@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 11:07:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/12 10:26:57 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/12 10:53:08 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@
 # define RED 12
 # define GREEN 10
 # define BLUE 1
+# define ITER_MAX 100
+# define HEIGHT 2000.0
+# define WIDHT 2000.0
 
 
 typedef struct s_model
@@ -89,6 +92,7 @@ typedef struct s_env
     t_complex *z_t1;
     t_complex *z_t;
     t_complex *c;
+    int iter_max;
     
 }           t_env;
 
@@ -105,7 +109,7 @@ t_normal_plan *create_normal_plan(double height, double width);
 t_complex_plan *create_complex_plan(double min, double max);
 t_complex *create_complex(double real, double imag);
 t_mlx *create_imag(int height, int widht);
-t_env *create_env(int height, int widht);
+t_env *create_env(int height, int widht, int iter_max);
 
 
 void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);

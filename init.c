@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:11:17 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/12 09:47:42 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/12 10:45:30 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ t_index_complex *init_index_complex()
 	return (index);	
 }
 
-t_env *create_env(int height, int widht)
+t_env *create_env(int height, int widht, int iter_max)
 {
 	t_env *env;
 	
@@ -108,6 +108,7 @@ t_env *create_env(int height, int widht)
 	env->z_t1 = create_complex(0.0, 0.0);
 	env->z_t = create_complex(0.0, 0.0);
 	env->c = create_complex(0.0, 0.0);
+	env->iter_max = 0;
 	return (env);
 }
 // t_model *init_model()
