@@ -8,6 +8,7 @@ SRCS		= 	main.c \
 				parsing.c \
 				color.c \
 				hook.c \
+				plan.c \
 
 
 

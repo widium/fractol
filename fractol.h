@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 11:07:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/12 09:47:51 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/12 10:26:57 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ int zoom(int key_code, int x, int y, t_env *env);
 int key_exit(int key_code, t_mlx *mlx);
 
 
+t_env *convert_normal_to_complex_plan(t_env *env, int x, int y);
 t_complex *complex_value(t_complex *z, double real, double imag);
 t_complex *compute_fractal(t_complex *c, t_complex *z_t, t_complex *z_t1);
 t_complex_plan *re_scale_complex_plan(t_complex_plan *complex_plan, double gamma);
@@ -129,6 +130,6 @@ int get_iterations(char *argv);
 t_model *check_input(int argc, char **argv);
 
 
-int pick_color(int i);
+void pick_color(int i, int iter_max, t_env *env, int x, int y);
 
 #endif

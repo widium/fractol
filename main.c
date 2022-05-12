@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 09:26:05 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/12 09:56:00 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/12 10:30:06 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,9 @@ int main(void)
  
         
 
-    // // mlx_key_hook(img->mlx_win, key_exit, img);
+    mlx_key_hook(env->mlx->mlx_win, key_exit, env->mlx);
     // // printf("IMG ---> (%p)\n", img->addr);
     mlx_loop(env->mlx->mlx);
-
-
     
 }
 
