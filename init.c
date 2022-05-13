@@ -6,11 +6,24 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:11:17 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/13 10:48:59 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/13 15:26:09 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+t_input *init_input()
+{
+	t_input *input;
+
+	input = (t_input *)malloc(sizeof(t_input));
+	if (!input)
+		return (NULL);
+	input->empty = 0;
+	input->false_iterations = 0;
+	input->to_much = 0;
+	return (input);
+}
 
 t_mlx *create_imag(int height, int widht)
 {
@@ -34,7 +47,7 @@ t_model *init_model()
 	model = (t_model *)malloc(sizeof(t_model));
 	if (!model)
 		return (NULL);
-	model->model = 0;
+	model->name = 0;
 	model->iter_max = 100;
 	return (model);
 }
@@ -91,7 +104,7 @@ t_index_complex *init_index_complex()
 	return (index);	
 }
 
-t_env *create_env(int height, int widht, int iter_max)
+t_env *create_env(int height, int widht)
 {
 	t_env *env;
 	
@@ -106,6 +119,7 @@ t_env *create_env(int height, int widht, int iter_max)
 	env->z_t = create_complex(0.0, 0.0);
 	env->c = create_complex(0.0, 0.0);
 	env->model = init_model();
+	env->input = init_input();
 	env->pos_real = 0.0;
 	env->pos_imag = 0.0;
 	return (env);

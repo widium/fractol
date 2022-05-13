@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 11:05:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/13 10:20:59 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/13 15:59:23 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,39 +87,41 @@ int get_iterations(char *argv)
 	return (-1);
 }
 
-// t_model *check_input(int argc, char **argv)
-// {
-// 	int i;
-// 	t_model *model;
+t_env *check_input(int argc, char **argv, t_env *env)
+{
+	int i;
+
+	i = 1;
+	if (argc > 3)
+		env->input->to_much = 1;
+	else if (argc == 1)
+	{
+		env->input->empty = 1;
+		return (env);
+	}
+	if (argc == 2)
+	{
+		env->model->name = check_name_fractal(argv[i]);
+		env->model->iter_max = 100;
+	}	
+	else if (argc > 2)
+	{
+		env->model->name = check_name_fractal(argv[i]);
+		env->model->iter_max = get_iterations(argv[i+1]);
+		if (env->model->iter_max == -1)
+			env->input->false_iterations = 1;
+	}	
+	return (env);
+}
 
 
-// 	model = init_model();
-// 	i = 1;
-// 	if (argc > 3)
-// 	{
-// 		model->to_much = 1;
-// 		return (model);
-// 	}
-// 	else if (argc == 1)
-// 	{
-// 		model->empty = 1;
-// 		return (model);
-// 	}
-// 	else
-// 	{
-// 		if (argc == 2)
-// 		{
-// 			model->model = check_name_fractal(argv[i]);
-// 			model->iterations = 100;
-// 		}
-				
-// 		else if (argc == 3)
-// 		{
-// 			model->model = check_name_fractal(argv[i]);
-// 			model->iterations = get_iterations(argv[i+1]);
-// 			if (model->iterations == -1)
-// 				model->false_iterations = 1;
-// 		}	
-// 	}
-// 	return (model);
-// }
+int print_status(t_env *env)
+{
+	printf("empty -> (%d)\n", env->input->empty);
+	printf("false iterations ? -> (%d)\n", env->input->false_iterations);
+	printf("trop d'arguments -> (%d)\n", env->input->to_much);
+	printf("le model est -> (%d)\n", env->model->name);
+	printf("iter_max -> (%d)\n", env->model->iter_max);
+	return (1);
+	
+}

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 11:07:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/13 10:48:51 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/13 15:36:40 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_input
 
 typedef struct s_model
 {
-    int model;
+    int name;
     int iter_max;
 
 }   t_model;
@@ -88,6 +88,7 @@ typedef struct s_index_complex
 
 typedef struct s_env
 {
+    t_input *input;
     t_mlx *mlx;
     t_model *model;
     t_complex_plan *complex_plan;
@@ -114,7 +115,7 @@ t_normal_plan *create_normal_plan(double height, double width);
 t_complex_plan *create_complex_plan(double min, double max);
 t_complex *create_complex(double real, double imag);
 t_mlx *create_imag(int height, int widht);
-t_env *create_env(int height, int widht, int iter_max);
+t_env *create_env(int height, int widht);
 
 
 void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
@@ -138,8 +139,8 @@ int check_argc(int argc);
 int is_digit(char *str);
 int	check_name_fractal(char *argv);
 int get_iterations(char *argv);
-t_model *check_input(int argc, char **argv);
-
+t_env *check_input(int argc, char **argv, t_env *env);
+int print_status(t_env *env);
 
 void pick_color(int i, int iter_max, t_env *env, int x, int y);
 
