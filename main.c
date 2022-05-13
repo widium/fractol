@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 09:26:05 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/13 15:53:51 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/13 18:05:07 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ int main(int argc, char **argv)
 
     env = create_env(HEIGHT, WIDHT);
     
-    env = check_input(argc, argv, env);
+    // env = check_input(argc, argv, env);
     
-    print_status(env);
+    // print_status(env);
     
     // printf("Max = (%f)\n", env->complex_plan->real_max);
     // printf("Min = (%f)\n", env->complex_plan->real_min);
     
     // julia(env);
-    // // mandelbrot(env);
+    mandelbrot(env);
 
     // mlx_mouse_hook(env->mlx->mlx_win, zoom, env);
     // mlx_key_hook(env->mlx->mlx_win, key_exit, env->mlx);
-    // mlx_loop(env->mlx->mlx);
+    mlx_loop(env->mlx->mlx);
     
 }
 
