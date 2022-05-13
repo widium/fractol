@@ -2,6 +2,7 @@ NAME = fractol
 
 SRCS		= 	main.c \
 				julia.c \
+				mandelbrot.c \
 				imag.c \
 				init.c \
 				complex.c \
@@ -9,6 +10,7 @@ SRCS		= 	main.c \
 				color.c \
 				hook.c \
 				plan.c \
+				math_utils.c
 
 
 

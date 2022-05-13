@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 11:07:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/12 10:53:08 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/13 10:48:51 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,17 @@
 # define WIDHT 2000.0
 
 
-typedef struct s_model
+typedef struct s_input
 {
-    int model;
-    int iterations;
     int false_iterations;
     int empty;
     int to_much;
+}       t_input;
+
+typedef struct s_model
+{
+    int model;
+    int iter_max;
 
 }   t_model;
 
@@ -85,14 +89,15 @@ typedef struct s_index_complex
 typedef struct s_env
 {
     t_mlx *mlx;
-    //t_model *model;
+    t_model *model;
     t_complex_plan *complex_plan;
     t_normal_plan *normal_plan;
     t_index_complex *index;
     t_complex *z_t1;
     t_complex *z_t;
     t_complex *c;
-    int iter_max;
+    double pos_real;
+    double pos_imag;
     
 }           t_env;
 
@@ -119,12 +124,14 @@ int key_exit(int key_code, t_mlx *mlx);
 
 
 t_env *convert_normal_to_complex_plan(t_env *env, int x, int y);
+t_env *get_position_complex_plan(t_env *env, int x, int y);
 t_complex *complex_value(t_complex *z, double real, double imag);
 t_complex *compute_fractal(t_complex *c, t_complex *z_t, t_complex *z_t1);
 t_complex_plan *re_scale_complex_plan(t_complex_plan *complex_plan, double gamma);
 double c_abs(t_complex *z);
 
-t_mlx *julia(t_env *env);
+t_env *julia(t_env *env);
+t_env *mandelbrot(t_env *env);
 
 int str_comp(char *first, char *second);
 int check_argc(int argc);

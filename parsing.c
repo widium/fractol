@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 11:05:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/06 11:06:42 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/13 10:20:59 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,39 +87,39 @@ int get_iterations(char *argv)
 	return (-1);
 }
 
-t_model *check_input(int argc, char **argv)
-{
-	int i;
-	t_model *model;
+// t_model *check_input(int argc, char **argv)
+// {
+// 	int i;
+// 	t_model *model;
 
 
-	model = init_model();
-	i = 1;
-	if (argc > 3)
-	{
-		model->to_much = 1;
-		return (model);
-	}
-	else if (argc == 1)
-	{
-		model->empty = 1;
-		return (model);
-	}
-	else
-	{
-		if (argc == 2)
-		{
-			model->model = check_name_fractal(argv[i]);
-			model->iterations = 100;
-		}
+// 	model = init_model();
+// 	i = 1;
+// 	if (argc > 3)
+// 	{
+// 		model->to_much = 1;
+// 		return (model);
+// 	}
+// 	else if (argc == 1)
+// 	{
+// 		model->empty = 1;
+// 		return (model);
+// 	}
+// 	else
+// 	{
+// 		if (argc == 2)
+// 		{
+// 			model->model = check_name_fractal(argv[i]);
+// 			model->iterations = 100;
+// 		}
 				
-		else if (argc == 3)
-		{
-			model->model = check_name_fractal(argv[i]);
-			model->iterations = get_iterations(argv[i+1]);
-			if (model->iterations == -1)
-				model->false_iterations = 1;
-		}	
-	}
-	return (model);
-}
+// 		else if (argc == 3)
+// 		{
+// 			model->model = check_name_fractal(argv[i]);
+// 			model->iterations = get_iterations(argv[i+1]);
+// 			if (model->iterations == -1)
+// 				model->false_iterations = 1;
+// 		}	
+// 	}
+// 	return (model);
+// }
