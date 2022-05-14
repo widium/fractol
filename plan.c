@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:08:22 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/13 10:55:17 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/14 07:32:15 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,14 @@ t_complex_plan *re_scale_complex_plan(t_complex_plan *complex_plan, double gamma
     
     complex_plan->imag_max =  complex_plan->real_max;
     complex_plan->imag_min =  complex_plan->real_min;
+    complex_plan->imag = complex_plan->imag_max - complex_plan->imag_min;
+
+    return (complex_plan);
+}
+
+t_complex_plan *re_scale_plan(t_complex_plan *complex_plan)
+{
+    complex_plan->real = complex_plan->real_max - complex_plan->real_min;
     complex_plan->imag = complex_plan->imag_max - complex_plan->imag_min;
 
     return (complex_plan);

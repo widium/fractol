@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 11:07:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/13 18:06:27 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/14 07:32:52 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ typedef struct s_complex_plan
     double real_max;
     double real_min;
     double real;
+    double zoom;
 }       t_complex_plan;
 
 typedef struct s_normal_plan
@@ -128,8 +129,12 @@ t_env *convert_normal_to_complex_plan(t_env *env, int x, int y);
 t_env *get_position_complex_plan(t_env *env, int x, int y);
 t_complex *complex_value(t_complex *z, double real, double imag);
 t_complex *compute_fractal(t_complex *c, t_complex *z_t, t_complex *z_t1);
+
 t_complex_plan *re_scale_complex_plan(t_complex_plan *complex_plan, double gamma);
+t_complex_plan *re_scale_plan(t_complex_plan *complex_plan);
+
 double c_abs(t_complex *z);
+double delta_center(t_env *env, double pos_real, double pos_imag);
 
 t_env *julia(t_env *env);
 t_env *mandelbrot(t_env *env);

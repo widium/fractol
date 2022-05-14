@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:11:17 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/13 18:05:32 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/14 05:20:26 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ t_complex_plan *init_complex_plan()
     plan->real_max = 0.0;
     plan->real_min = 0.0;
     plan->real = 0.0;
+	plan->zoom = 1.0;
 	return (plan);
 }
 
