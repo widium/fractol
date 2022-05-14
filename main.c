@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 09:26:05 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/14 05:03:14 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/14 09:14:51 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int main(int argc, char **argv)
     julia(env);
     // mandelbrot(env);
 
-    mlx_mouse_hook(env->mlx->mlx_win, zoom, env);
-    mlx_key_hook(env->mlx->mlx_win, key_exit, env->mlx);
+    // mlx_mouse_hook(env->mlx->mlx_win, zoom, env);
+    mlx_key_hook(env->mlx->mlx_win, moove, env);
     mlx_loop(env->mlx->mlx);
     
 }

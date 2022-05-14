@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 11:07:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/14 07:32:52 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/14 08:57:22 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@
 # define RED 12
 # define GREEN 10
 # define BLUE 1
-# define ITER_MAX 100
-# define HEIGHT 2000.0
-# define WIDHT 2000.0
+# define ITER_MAX 50
+# define HEIGHT 700.0
+# define WIDHT 700.0
 
 
 typedef struct s_input
@@ -122,6 +122,9 @@ t_env *create_env(int height, int widht);
 void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
 
 int zoom(int key_code, int x, int y, t_env *env);
+t_env *zoom_out(t_env *env);
+t_env *zoom_in(t_env *env);
+int moove(int key_code, t_env *env);
 int key_exit(int key_code, t_mlx *mlx);
 
 
