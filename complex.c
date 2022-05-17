@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 11:08:32 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/11 10:56:57 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/16 17:18:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ t_complex_plan *create_complex_plan(double min, double max)
     plan->real_min = min;
     plan->real_max = max;
     plan->real = max - min;
+    plan->center_imag =  (plan->imag_min + plan->imag_max) / 2.0 ;
+    plan->center_real = (plan->real_min +  plan->real_max) / 2.0;
 
-    // printf(" Real : (%d)--------(%d)\n", plan->real_min, plan->real_max);
-    // printf(" Imag : (%d)\n         |\n         |\n         |\n         |\n       (%d)\n", plan->imag_max, plan->imag_min);
     return (plan);
 }
 

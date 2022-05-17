@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:11:17 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/14 05:20:26 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/17 12:38:43 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ t_complex_plan *init_complex_plan()
     plan->real_max = 0.0;
     plan->real_min = 0.0;
     plan->real = 0.0;
-	plan->zoom = 1.0;
+	plan->center_imag = 0.0;
+	plan->center_real = 0.0;
 	return (plan);
 }
 
@@ -105,7 +106,7 @@ t_index_complex *init_index_complex()
 	return (index);	
 }
 
-t_env *create_env(int height, int widht)
+t_env *create_env()
 {
 	t_env *env;
 	
@@ -113,15 +114,18 @@ t_env *create_env(int height, int widht)
 	if (!env)
 		return (NULL);
 	env->complex_plan = create_complex_plan(-2.0, 2.0);
-	env->normal_plan = create_normal_plan(height, widht);
-	env->mlx =  create_imag((int)env->normal_plan->height, (int)env->normal_plan->width);
+	env->normal_plan = create_normal_plan(HEIGHT, WIDHT);
+	env->mlx =  create_imag((int)HEIGHT, (int)WIDHT);
 	env->index = init_index_complex();
 	env->z_t1 = create_complex(0.0, 0.0);
 	env->z_t = create_complex(0.0, 0.0);
 	env->c = create_complex(0.0, 0.0);
 	env->model = init_model();
 	env->input = init_input();
-	env->pos_real = 0.0;
-	env->pos_imag = 0.0;
+	env->x = 0.0;
+	env->y = 0.0;
+	env->zoom_w = 0.0;
+	env->zoom_h = 0.0;
+	env->zoom = ZOOM;
 	return (env);
 }

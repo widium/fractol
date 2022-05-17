@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 11:05:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/13 15:59:23 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/16 16:52:56 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,13 +115,26 @@ t_env *check_input(int argc, char **argv, t_env *env)
 }
 
 
-int print_status(t_env *env)
+void print_status(t_env *env)
 {
-	printf("empty -> (%d)\n", env->input->empty);
-	printf("false iterations ? -> (%d)\n", env->input->false_iterations);
-	printf("trop d'arguments -> (%d)\n", env->input->to_much);
-	printf("le model est -> (%d)\n", env->model->name);
-	printf("iter_max -> (%d)\n", env->model->iter_max);
-	return (1);
-	
+	printf("============ Error ===============\n");
+	printf("Passer le nom de la fractales souhaiter en premier parametres\n");
+	printf("-----| %s, %s |-----\n", "julia", "mandelbrot");
+	printf("Indiquer le Nombre d'iterations en 2e argument (Optional, default [%d])\n", ITER_MAX);
+	printf("Ex : julia 1000\n");
+	printf("===============================\n");
 }
+
+int define_status(t_env *env)
+{
+	if (env->input->empty)
+		return (0);
+	if (env->input->false_iterations)
+		return (0);
+	if (env->input->to_much)
+		return (0);
+	if (env->model->name == 0)
+		return (0);
+	return (1);
+}
+	

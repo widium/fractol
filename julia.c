@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:11:09 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/13 10:20:11 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/17 17:58:52 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,16 @@ t_env *julia(t_env *env)
 	int y;
 
 	env->c = complex_value(env->c, 0.3, 0.01);
-	while (++x < env->normal_plan->width)
+	// printf("Complexe plan (%f, %fi)\n", env->complex_plan->real, env->complex_plan->imag);
+
+	env->zoom_w = WIDHT / env->complex_plan->real;
+	env->zoom_h = HEIGHT / env->complex_plan->imag;
+	// printf("Zoom Complexe plan (%f, %fi)\n", env->zoom_w, env->zoom_h);
+	
+	while (++x < WIDHT)
 	{
 		y = -1.0;
-		while (++y < env->normal_plan->height)
+		while (++y < HEIGHT)
 		{
 			i = 0;
 			env = convert_normal_to_complex_plan(env, x, y);
