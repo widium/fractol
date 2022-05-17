@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 15:52:13 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/17 16:35:39 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/17 18:01:59 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,14 @@ int zoom(int key_code, int x, int y, t_env *env)
 	if (key_code == K_ZOOM_IN)
 	{ 
         zoom_in_pos(env);
-        // zoom_test(env, x, y, 1.1);
         julia(env);
-        //printf("(%f, %fi)\n", env->complex_plan->real, env->complex_plan->imag);
         // mandelbrot(env);
-        // env->complex_plan = re_scale_complex_plan(env->complex_plan, 1);
 	}
 	else if (key_code == K_ZOOM_OUT)
     {
         zoom_out_pos(env);
-    //    zoom_test(env, x, y, 0.9);
        julia(env);
-       //printf("(%f, %fi)\n", env->complex_plan->real, env->complex_plan->imag);
         // mandelbrot(env);
-    //    env->complex_plan = re_scale_complex_plan(env->complex_plan, 1);
     }
     return (0);
 }

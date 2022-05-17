@@ -6,29 +6,12 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 08:54:46 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/17 16:38:44 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/17 18:08:36 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 # include "fractol.h"
-
-// void    zoom(t_data *a, int x, int y, double i)
-// {
-//     double    w;
-//     double    h;
-//     double    new_w;
-//     double    new_h;
-
-//     w = (a->view.xmax - a->view.xmin) / a->view.zoom;
-//     h = (a->view.ymax - a->view.ymin) / a->view.zoom;
-//     new_w = (a->view.xmax - a->view.xmin) / a->view.zoom / i;
-//     new_h = (a->view.ymax - a->view.ymin) / a->view.zoom / i;
-//     a->view.offsetx -= ((double)x / WIN_HEIGHT) * (new_w - w);
-//     a->view.offsety -= ((double)y / WIN_HEIGHT) * (new_h - h);
-//     a->view.zoom *= i;
-// }
-
 
 t_env *zoom_in_pos(t_env *env)
 {
@@ -54,11 +37,6 @@ t_env *zoom_in_pos(t_env *env)
     
     zoom_in(env);
 
-    //env->complex_plan->real =  env->complex_plan->real_max - env->complex_plan->real_min;
-    //env->complex_plan->imag =  env->complex_plan->imag_max - env->complex_plan->imag_min;
-    //                          - (env->x / (env->zoom * 1.1));
-    // env->complex_plan->imag_min = ((env->y / env->zoom) + env->complex_plan->imag_min) 
-    //                         - (env->y / (env->zoom * 1.1));
     return (env);
 }
 
@@ -82,16 +60,9 @@ t_env *zoom_out_pos(t_env *env)
     env->complex_plan->real_min -= (env->x / WIDHT - 0.5) * (new_zoom_w - backup_w)* 2;
     env->complex_plan->imag_max -= (env->y / HEIGHT - 0.5) * (new_zoom_h - backup_h)* 2;
     env->complex_plan->imag_min -= (env->y / HEIGHT - 0.5) * (new_zoom_h - backup_h)* 2;
-
-    //env->complex_plan->real =  env->complex_plan->real_max - env->complex_plan->real_min;
-    //env->complex_plan->imag =  env->complex_plan->imag_max - env->complex_plan->imag_min;
    
     zoom_out(env);
-    
-    // env->complex_plan->real_min = ((env->x / env->zoom) + env->complex_plan->real_min) 
-    //                         - (env->x / (env->zoom - (env->zoom * 1.1 - env->zoom)));
-    // env->complex_plan->imag_min = ((env->y / env->zoom) + env->complex_plan->imag_min) 
-    //                         - (env->y / (env->zoom - (env->zoom * 1.1 - env->zoom)));
+
     return (env);
 }
 
@@ -145,5 +116,4 @@ void zoom_out(t_env *env)
 
    if (env->model->iter_max > 30)
         env->model->iter_max -= 0.25;
-    // printf("center -> (%f, %fi)\n", env->complex_plan->center_real, env->complex_plan->center_imag);
 }
