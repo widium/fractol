@@ -17,11 +17,10 @@
 # include   <unistd.h>
 # include   <stdlib.h>
 # include   <limits.h>
-# include   <mlx.h>
+# include   "minilibx/mlx.h"
 # include   "libft/libft.h"
 # include   <math.h>
 # include    "key.h"
-# include	<pthread.h>
 
 # define RED 12
 # define GREEN 10

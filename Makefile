@@ -19,8 +19,8 @@ SRCS		= 	main.c \
 
 OBJS			= $(SRCS:.c=.o)
 CC				= clang
-# FLAGS 			= -Wall -Werror -Wextra
-FLAGS		    = -lmlx -lXext -lX11 -lm
+# FLAGS 		= -Wall -Werror -Wextra
+# FLAGS		    = -lmlx -lXext -lX11 -lm
 SANITIZE		= -g3 -fsanitize=address
 
 %.o : %.c
@@ -33,15 +33,15 @@ $(NAME) : 		$(OBJS)
 all : 			$(NAME)
 
 
-# UNAME = $(shell uname -s)
-# ifeq ($(UNAME), Linux)
-# 	NPROC := $(shell nproc)
-# 	LIBS += -lmlx -lXext -lX11 -lm
-# else
-# 	NPROC := $(shell sysctl -n hw.ncpu)
-# 	INC_FLAGS += -Ilibs/mlx
-#     	LIBS += -Llibs/mlx -framework OpenGL -framework Appkit
-# endif
+UNAME = $(shell uname -s)
+ifeq ($(UNAME), Linux)
+	NPROC := $(shell nproc)
+	FLAGS += -lmlx -lXext -lX11 -lm
+else
+	NPROC := $(shell sysctl -n hw.ncpu)
+	FLAGS += -lmlx
+    FLAGS += -Lminilibx -framework OpenGL -framework Appkit
+endif
 
 clean :
 				make clean -C libft

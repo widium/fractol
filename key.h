@@ -40,6 +40,10 @@
 #  define K_LEFT_CLICK 1
 #  define K_RIGHT_CLICK 3
 # elif __APPLE__
+#  define K_ZOOM_IN 4
+#  define K_ZOOM_OUT 5
+#  define K_LEFT_CLICK 1
+#  define K_RIGHT_CLICK 3
 #  define K_ESC 53
 #  define K_UP 126
 #  define K_DOWN 125
