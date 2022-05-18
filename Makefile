@@ -3,11 +3,11 @@ NAME = fractol
 SRCS		= 	main.c \
 				draw.c \
 				model.c \
-				imag.c \
 				init.c \
 				init_2.c \
 				complex.c \
-				parsing.c \
+				parsing_1.c \
+				parsing_2.c \
 				color.c \
 				hook.c \
 				zoom.c \
