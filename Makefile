@@ -1,8 +1,8 @@
 NAME = fractol
 
 SRCS		= 	main.c \
-				julia.c \
-				mandelbrot.c \
+				draw.c \
+				model.c \
 				imag.c \
 				init.c \
 				complex.c \

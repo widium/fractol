@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:11:17 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/17 12:38:43 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/18 15:29:15 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,13 @@ t_mlx *create_imag(int height, int widht)
 	img = (t_mlx *)malloc(sizeof(t_mlx));
 
 	img->mlx = mlx_init();
-	img->mlx_win = mlx_new_window(img->mlx, widht, height, "Hello world!");
+	img->mlx_win = mlx_new_window(img->mlx, widht, height, "Fract-ol");
 	img->img = mlx_new_image(img->mlx, widht, height);
 	img->addr = mlx_get_data_addr(img->img, 
 								&img->bits_per_pixel, 
 								&img->line_length,
 								&img->endian);
+	img->is_pressed = 0;
 	return (img);
 }
 
@@ -120,6 +121,7 @@ t_env *create_env()
 	env->z_t1 = create_complex(0.0, 0.0);
 	env->z_t = create_complex(0.0, 0.0);
 	env->c = create_complex(0.0, 0.0);
+	env->const_z = create_complex(0.0, 0.0);
 	env->model = init_model();
 	env->input = init_input();
 	env->x = 0.0;

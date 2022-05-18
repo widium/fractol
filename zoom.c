@@ -6,14 +6,14 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 08:54:46 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/17 18:08:36 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/18 14:07:35 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 # include "fractol.h"
 
-t_env *zoom_in_pos(t_env *env)
+void zoom_in_pos(t_env *env)
 {
        
     double backup_w;
@@ -37,10 +37,9 @@ t_env *zoom_in_pos(t_env *env)
     
     zoom_in(env);
 
-    return (env);
 }
 
-t_env *zoom_out_pos(t_env *env)
+void zoom_out_pos(t_env *env)
 { 
     double backup_w;
     double backup_h;
@@ -63,7 +62,6 @@ t_env *zoom_out_pos(t_env *env)
    
     zoom_out(env);
 
-    return (env);
 }
 
 void zoom_in(t_env *env)
@@ -89,7 +87,7 @@ void zoom_in(t_env *env)
    env->complex_plan->imag_max += delta_img / 2;
    
 
-   env->model->iter_max += 1;
+   env->model->iter_max += ITER_ICREMENT;
    
 }
 void zoom_out(t_env *env)
@@ -115,5 +113,5 @@ void zoom_out(t_env *env)
    env->complex_plan->imag_max += delta_img / 2;
 
    if (env->model->iter_max > 30)
-        env->model->iter_max -= 0.25;
+        env->model->iter_max -= ITER_ICREMENT;
 }

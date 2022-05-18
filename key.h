@@ -6,15 +6,14 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 10:51:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/11 13:55:13 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/18 17:28:18 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "fractol.h"
-
 #ifndef KEY_H
 # define KEY_H
+
+# include "fractol.h"
 
 # ifdef __gnu_linux__
 #  define K_ESC 65307
@@ -36,8 +35,10 @@
 #  define K_K 107
 #  define K_O 111
 #  define K_L 108
-# define K_ZOOM_IN 4
-# define K_ZOOM_OUT 5
+#  define K_ZOOM_IN 4
+#  define K_ZOOM_OUT 5
+#  define K_LEFT_CLICK 1
+#  define K_RIGHT_CLICK 3
 # elif __APPLE__
 #  define K_ESC 53
 #  define K_UP 126
