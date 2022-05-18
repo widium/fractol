@@ -14,21 +14,22 @@ SRCS		= 	main.c \
 				plan.c \
 				math_utils.c \
 				detect.c \
+				free.c
 
 
 
 OBJS			= $(SRCS:.c=.o)
-CC				= clang
+CC				= gcc
 # FLAGS 		= -Wall -Werror -Wextra
 # FLAGS		    = -lmlx -lXext -lX11 -lm
-SANITIZE		= -g3 -fsanitize=address
+SANITIZE		= -g3 -fsanitize=address -fsanitize=leak
 
 %.o : %.c
 			$(CC) -c $(CFLAGS) $< -o $@
 	
 $(NAME) : 		$(OBJS)
 				make -C libft
-				$(CC) $(OBJS) $(FLAGS) libft/libft.a -o $(NAME)		
+				$(CC) $(SANITIZE)  $(OBJS) $(FLAGS) libft/libft.a -o $(NAME)		
 
 all : 			$(NAME)
 

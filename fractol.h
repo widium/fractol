@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 11:07:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/18 18:40:28 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/18 19:59:44 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,4 +161,5 @@ void				print_status(t_env *env);
 
 void				pick_color(int i, t_env *env, int x, int y);
 int					fractal(int argc, char **argv);
+int					free_all(t_env *env);
 #endif

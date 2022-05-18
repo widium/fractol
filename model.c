@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:11:09 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/18 18:39:12 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/18 20:00:30 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,13 @@ int	fractal(int argc, char **argv)
 	if (!(define_status(env)))
 	{
 		print_status(env);
+		free_all(env);
 		return (0);
 	}
 	draw(env);
 	mlx_mouse_hook(env->mlx->mlx_win, detect_mouse, env);
 	mlx_key_hook(env->mlx->mlx_win, detect, env);
 	mlx_loop(env->mlx->mlx);
+	free_all(env);
 	return (1);
 }
