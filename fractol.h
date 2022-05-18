@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 11:07:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/18 17:34:09 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/18 18:40:28 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include   "libft/libft.h"
 # include   <math.h>
 # include    "key.h"
+# include	<pthread.h>
 
 # define RED 12
 # define GREEN 10
@@ -47,7 +48,7 @@ typedef struct s_model
 
 }	t_model;
 
-typedef	struct	s_mlx
+typedef struct s_mlx
 {
 	void	*mlx;
 	void	*mlx_win;
@@ -108,6 +109,7 @@ typedef struct s_env
 	double			zoom;
 }	t_env;
 
+t_input				*init_input(void);
 t_model				*init_model(void);
 t_complex			*init_complex(void);
 t_index_complex		*init_index_complex(void);
@@ -136,9 +138,9 @@ int					detect_mouse(int key_code, int x, int y, t_env *env);
 t_env				*convert_normal_to_complex_plan(t_env *env, int x, int y);
 t_env				*get_position_complex_plan(t_env *env, int x, int y);
 t_complex			*complex_value(t_complex *z, double real, double imag);
-t_complex			*compute_fractal(t_complex *c, t_complex *z_t, t_complex *z_t1);
+t_complex			*compute_fractal(t_complex *c,
+						t_complex *z_t, t_complex *z_t1);
 
-t_complex_plan		*re_scale_complex_plan(t_complex_plan *complex_plan, double gamma);
 t_complex_plan		*re_scale_plan(t_complex_plan *complex_plan);
 
 double				c_abs(t_complex *z);
@@ -147,6 +149,7 @@ double				delta_center(t_env *env, double pos_real, double pos_imag);
 void				draw(t_env *env);
 void				julia(t_env *env, int x, int y, t_complex *c);
 void				mandelbrot(t_env *env, int x, int y, t_complex *c);
+void				pthread_julia(t_env *env, int x, int y, t_complex *const_z);
 
 int					define_status(t_env *env);
 int					str_comp(char *first, char *second);
@@ -158,5 +161,5 @@ t_env				*check_input(int argc, char **argv, t_env *env);
 void				print_status(t_env *env);
 
 void				pick_color(int i, t_env *env, int x, int y);
-
+int					fractal(int argc, char **argv);
 #endif

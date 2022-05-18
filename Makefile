@@ -5,13 +5,15 @@ SRCS		= 	main.c \
 				model.c \
 				imag.c \
 				init.c \
+				init_2.c \
 				complex.c \
 				parsing.c \
 				color.c \
 				hook.c \
 				zoom.c \
 				plan.c \
-				math_utils.c
+				math_utils.c \
+				detect.c \
 
 
 

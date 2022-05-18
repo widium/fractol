@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 14:02:21 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/18 17:27:15 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/18 18:40:38 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	pick_color(int i, t_env *env, int x, int y)
 		my_mlx_pixel_put(env->mlx, x, y, 0);
 	else
 		my_mlx_pixel_put(env->mlx, x, y,
-	(((i << RED) + (i << GREEN) + (i << BLUE)) & 0xFFFFFF));
+			(((i << RED) + (i << GREEN) + (i << BLUE)) & 0xFFFFFF));
 }
 
 void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color)
