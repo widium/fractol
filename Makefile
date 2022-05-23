@@ -22,14 +22,14 @@ OBJS			= $(SRCS:.c=.o)
 CC				= gcc
 # FLAGS 		= -Wall -Werror -Wextra
 # FLAGS		    = -lmlx -lXext -lX11 -lm
-SANITIZE		= -g3 -fsanitize=address -fsanitize=leak
+SANITIZE		= -g3 -fsanitize=address
 
 %.o : %.c
 			$(CC) -c $(CFLAGS) $< -o $@
 	
 $(NAME) : 		$(OBJS)
 				make -C libft
-				$(CC) $(SANITIZE)  $(OBJS) $(FLAGS) libft/libft.a -o $(NAME)		
+				$(CC) $(OBJS) $(FLAGS) libft/libft.a -o $(NAME)		
 
 all : 			$(NAME)
 
