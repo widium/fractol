@@ -19,7 +19,7 @@ SRCS		= 	main.c \
 
 
 OBJS			= $(SRCS:.c=.o)
-CC				= gcc
+CC				= clang
 # FLAGS 		= -Wall -Werror -Wextra
 # FLAGS		    = -lmlx -lXext -lX11 -lm
 SANITIZE		= -g3 -fsanitize=address
