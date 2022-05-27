@@ -6,11 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:11:09 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/18 20:00:30 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/27 17:10:12 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 t_complex	*compute_fractal(t_complex *c, t_complex *z_t, t_complex *z_t1)
 {

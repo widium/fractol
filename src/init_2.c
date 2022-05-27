@@ -6,11 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 18:22:38 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/18 18:42:20 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/27 17:07:25 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 t_mlx	*create_imag(int height, int widht)
 {

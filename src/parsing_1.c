@@ -6,11 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 20:26:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/18 20:28:07 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/27 17:10:19 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 int	str_comp(char *first, char *second)
 {

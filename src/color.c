@@ -6,11 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 14:02:21 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/18 20:22:23 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/27 17:06:49 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 void	pick_color(int i, t_env *env, int x, int y)
 {

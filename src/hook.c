@@ -6,11 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 15:52:13 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/18 20:23:14 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/27 17:07:21 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 int	key_exit(int key_code, t_env *env)
 {

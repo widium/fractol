@@ -1,0 +1,20 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/widium/Programming/42_cursus/fractol'
+make: Leaving directory '/home/widium/Programming/42_cursus/fractol'
+ 
+make: *** No rule to make target 'main.o', needed by 'fractol'.
+make: *** No rule to make target 'draw.o', needed by 'fractol'.
+make: *** No rule to make target 'model.o', needed by 'fractol'.
+make: *** No rule to make target 'init.o', needed by 'fractol'.
+make: *** No rule to make target 'init_2.o', needed by 'fractol'.
+make: *** No rule to make target 'complex.o', needed by 'fractol'.
+make: *** No rule to make target 'parsing_1.o', needed by 'fractol'.
+make: *** No rule to make target 'parsing_2.o', needed by 'fractol'.
+make: *** No rule to make target 'color.o', needed by 'fractol'.
+make: *** No rule to make target 'hook.o', needed by 'fractol'.
+make: *** No rule to make target 'zoom.o', needed by 'fractol'.
+make: *** No rule to make target 'plan.o', needed by 'fractol'.
+make: *** No rule to make target 'math_utils.o', needed by 'fractol'.
+make: *** No rule to make target 'detect.o', needed by 'fractol'.
+make: *** No rule to make target 'free.o', needed by 'fractol'.
+

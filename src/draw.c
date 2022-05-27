@@ -6,11 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:38:58 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/18 20:13:27 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/27 17:07:09 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 void	draw(t_env *env)
 {

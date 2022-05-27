@@ -6,11 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 20:24:13 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/18 20:25:52 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/27 17:10:26 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 int	get_iterations(char *argv)
 {

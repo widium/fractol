@@ -6,11 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:08:22 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/18 18:36:31 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/27 17:10:38 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 t_env	*convert_normal_to_complex_plan(t_env *env, int x, int y)
 {

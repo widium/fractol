@@ -6,11 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 14:40:22 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/18 20:21:46 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/27 17:10:09 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 double	delta_center(t_env *env, double pos_real, double pos_imag)
 {

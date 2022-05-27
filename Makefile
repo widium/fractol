@@ -1,20 +1,20 @@
 NAME = fractol
 
 SRCS		= 	main.c \
-				draw.c \
-				model.c \
-				init.c \
-				init_2.c \
-				complex.c \
-				parsing_1.c \
-				parsing_2.c \
-				color.c \
-				hook.c \
-				zoom.c \
-				plan.c \
-				math_utils.c \
-				detect.c \
-				free.c
+				src/draw.c \
+				src/model.c \
+				src/init.c \
+				src/init_2.c \
+				src/complex.c \
+				src/parsing_1.c \
+				src/parsing_2.c \
+				src/color.c \
+				src/hook.c \
+				src/zoom.c \
+				src/plan.c \
+				src/math_utils.c \
+				src/detect.c \
+				src/free.c
 
 
 

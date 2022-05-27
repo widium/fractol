@@ -6,11 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 11:08:32 by ebennace          #+#    #+#             */
-/*   Updated: 2022/05/18 18:38:54 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/05/27 17:06:56 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 t_complex	*create_complex(double real, double imag)
 {
