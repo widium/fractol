@@ -1,5 +1,8 @@
 # fractol 
 
+![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/85416801/193234549-9f29b659-23da-41d3-8a72-db155d621390.gif)
+
+
 ![](https://i.imgur.com/wkQlCQq.png)
 
 ![](https://i.imgur.com/ZKMG59o.png)
