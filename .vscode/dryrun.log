@@ -1,20 +1,21 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/widium/Programming/42_cursus/fractol'
+clang -c  main.c -o main.o
+clang -c  src/draw.c -o src/draw.o
+clang -c  src/model.c -o src/model.o
+clang -c  src/init.c -o src/init.o
+clang -c  src/init_2.c -o src/init_2.o
+clang -c  src/complex.c -o src/complex.o
+clang -c  src/parsing_1.c -o src/parsing_1.o
+clang -c  src/parsing_2.c -o src/parsing_2.o
+clang -c  src/color.c -o src/color.o
+clang -c  src/hook.c -o src/hook.o
+clang -c  src/zoom.c -o src/zoom.o
+clang -c  src/plan.c -o src/plan.o
+clang -c  src/math_utils.c -o src/math_utils.o
+clang -c  src/detect.c -o src/detect.o
+clang -c  src/free.c -o src/free.o
+make -C libft
+clang main.o src/draw.o src/model.o src/init.o src/init_2.o src/complex.o src/parsing_1.o src/parsing_2.o src/color.o src/hook.o src/zoom.o src/plan.o src/math_utils.o src/detect.o src/free.o -lmlx -lXext -lX11 -lm libft/libft.a -o fractol		
 make: Leaving directory '/home/widium/Programming/42_cursus/fractol'
  
-make: *** No rule to make target 'main.o', needed by 'fractol'.
-make: *** No rule to make target 'draw.o', needed by 'fractol'.
-make: *** No rule to make target 'model.o', needed by 'fractol'.
-make: *** No rule to make target 'init.o', needed by 'fractol'.
-make: *** No rule to make target 'init_2.o', needed by 'fractol'.
-make: *** No rule to make target 'complex.o', needed by 'fractol'.
-make: *** No rule to make target 'parsing_1.o', needed by 'fractol'.
-make: *** No rule to make target 'parsing_2.o', needed by 'fractol'.
-make: *** No rule to make target 'color.o', needed by 'fractol'.
-make: *** No rule to make target 'hook.o', needed by 'fractol'.
-make: *** No rule to make target 'zoom.o', needed by 'fractol'.
-make: *** No rule to make target 'plan.o', needed by 'fractol'.
-make: *** No rule to make target 'math_utils.o', needed by 'fractol'.
-make: *** No rule to make target 'detect.o', needed by 'fractol'.
-make: *** No rule to make target 'free.o', needed by 'fractol'.
-
